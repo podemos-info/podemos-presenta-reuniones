@@ -98,24 +98,23 @@ footer {
 }
 
 
-/* estilos que solo se aplican en la página de videoconferencias */
-#videoconferencias a.botontienda {
+a.botontienda {
   display: inline-block;
   padding:10px 10px 10px 10px;
 }
 
-#videoconferencias a.botontienda:hover {
+a.botontienda:hover {
   padding-top:0;
   padding-bottom:20px;
 }
 
-#videoconferencias i.fa-check, #videoconferencias i.fa-download {
+i.fa-check, i.fa-download {
   color:#AC5C92;
   font-size:1.8em;
 }
 
 .toolbar label {
-  font-size: 1.4em;
+  font-size: 1.6em;
 }
 
 @media only screen and (max-width: 736px) {
@@ -126,8 +125,16 @@ footer {
     font-size: 1.75rem;
   }
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
-  
+  .toolbar label {
+    font-size: 1.2em;
+  }
+
+  a.botontienda, a.botontienda:hover {
+    padding: 10px 10px 20px 10px;
+    padding-bottom: 20px;
+  }
+  }
 }
 
