@@ -30,7 +30,7 @@
     <div class="input-group input-group-lg">
       <input id="sala" type="text" class="form-control form-control-primary" placeholder="Ej: misala" aria-label="Escribe el nombre de la sala">
       <div class="input-group-append">
-        <a class="btn btn-secondary" href="@@webRoot/soporte/">Soporte <i class="fa fa-question-circle"></i></a>
+        <a class="btn btn-secondary d-none d-md-block" href="@@webRoot/soporte/">Soporte <i class="fa fa-question-circle"></i></a>
         <button id="entrar" class="btn btn-primary" type="button">Entrar <i class="fa fa-play-circle"></i> </button>
       </div>
     </div>
@@ -84,11 +84,18 @@
 const _ROOM_EXCLUDE_PATTERN = '[\\:\\?#\\[\\]@!$&\'()*+,;=></"]';
 
 ;(function($) {
+
+  $('#sala').on('keypress', function (e) {
+   var key = e.which;
+   if(key == 13)  $('#entrar').click();
+  });
+
   $('#entrar').on('click', function(e) {
+    e.preventDefault()
     var sala=$('#sala').val().replace(/\s/g, '').replace(new RegExp(_ROOM_EXCLUDE_PATTERN, 'g'), '');
     var direccion='https://reuniones.circulospodemos.info/'+sala;
     //alert(direccion);
-    window.location.assign(direccion);
+    if (sala != "") window.location.assign(direccion);
   });
 })(jQuery);
 
