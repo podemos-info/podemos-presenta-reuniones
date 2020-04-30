@@ -1,0 +1,115 @@
+/* Efecto ola aplicado en la cabecera */
+
+@keyframes move_wave {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1) 
+  }
+  50% {
+    transform:  translateX(-25%) translateZ(0) scaleY(0.55)
+  }
+  100% {
+    transform: translateX(-50%) translateZ(0) scaleY(1)
+  }
+}
+
+.waveWrapper {
+  overflow: hidden;
+  position: relative;
+  min-height:300px;
+  background-color:#fff;
+}
+
+.waveWrapperInner {
+  position: absolute;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  background-image: linear-gradient(to top, #02747F 20%, #683064 80%);
+}
+
+.bgTop {
+  z-index: 15;
+  opacity: 0.5;
+}
+
+.bgMiddle {
+  z-index: 10;
+  opacity: 0.75;
+}
+
+.bgBottom {
+  z-index: 5;
+}
+
+.wave {
+  position: absolute;
+  bottom:0;
+  left: 0;
+  width: 7000px;
+  height: 100%;
+  background-repeat: repeat no-repeat;
+  background-position: 0 bottom;
+  transform-origin: center bottom;
+}
+
+.waveTop {
+  background-size: 25% 80px;
+}
+
+.waveAnimation .waveTop {
+  animation: move-wave 4s;
+   -webkit-animation: move-wave 4s;
+   -webkit-animation-delay: 1s;
+   animation-delay: 1s;
+}
+
+.waveMiddle {
+  background-size: 25% 100px;
+}
+
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+
+.waveBottom {
+  background-size: 25% 80px;
+}
+
+.waveAnimation .waveBottom {
+  animation: move_wave 15s linear infinite;
+}
+
+.waveWrapper h1 {
+  position:absolute;
+  top:0;
+  width:100%;
+  text-align:center;
+  color:#fff;
+  z-index:100;
+  margin-top:-20px;
+}
+
+/* estilos para el footer */
+footer {
+  font-size:1.4em;
+  color: #fff;
+  font-weight:bold;
+  padding: 50px 20px 100px 20px;
+}
+
+
+/* estilos que solo se aplican en la página de videoconferencias */
+#videoconferencias a.botontienda {
+  display: inline-block;
+  padding:5px 5px 5px 5px;
+}
+
+#videoconferencias a.botontienda:hover {
+  padding-top:0;
+}
+
+#videoconferencias i.fa-check, #videoconferencias i.fa-download {
+  color:#AC5C92;
+  font-size:2em;
+}

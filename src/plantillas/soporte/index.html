@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+
+  @@include('metas-compartir.html', {
+    "titulo": "Formulario de soporte para reuniones.circulospodemos.info",
+    "descripcion": "En esta página puedes ponerte en contacto con nosotros para solventar problemas en el uso de las aplicaciones de videoconferencia y pads de Círculos Podemos"
+  })
+
+  @@include('estilos-comunes.html')
+
+  <!-- estilos propios de la página -->
+  <style>
+
+  </style>
+
+</head>
+<body id="videoconferencias">
+
+  @@include('menu.html')
+
+  @@include('cabecera.html', {
+    "titulo": "¿Problemas? Rellena este formulario e intentaremos ayudarte"
+  })
+
+  <div class="container">
+    <div class="row">
+      <iframe src="https://forms.podemos.info/gfembed/?f=890" width="100%" height="3000" frameBorder="0" class="gfiframe"></iframe>
+    </div>
+  </div>
+
+  @@include('pie.html')
+
+  @@include('scripts-comunes.html')
+
+  <!-- scripts propios de la página -->
+  <script src="https://forms.podemos.info/wp-content/plugins/gravity-forms-iframe/assets/scripts/gfembed.min.js" type="text/javascript" crossorigin="anonymous"></script>
+  <script>
+  </script>
+
+</body>
+</html>

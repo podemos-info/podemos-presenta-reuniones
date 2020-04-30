@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+
+  @@include('metas-compartir.html', {
+    "titulo": "Servicio de videoconferencia abierto, libre y gratuito",
+    "descripcion": "Es una instancia personalizada del software libre jitsi que corre en los servidores de PODEMOS desde la web reuniones.circulospodemos.info y es compatible con las aplicacions de jitsi para Android e Iphone. No requiere autentificación."
+  })
+
+  @@include('estilos-comunes.html')
+
+  <!-- estilos propios de la página -->
+  <style>
+
+  </style>
+
+</head>
+<body id="videoconferencias">
+
+  @@include('menu.html')
+
+  @@include('cabecera.html', {
+    "titulo": "Servicio de videoconferencia abierto, libre y gratuito"
+  })
+
+<!-- formulario -->
+<div class="container sticky-top">
+  <div class="row shadow p-3 mb-5 bg-white">
+    <label style="font-size:1.6em;">Escribe el nombre de la sala:</label>
+    <div class="input-group input-group-lg">
+      <input id="sala" type="text" class="form-control form-control-primary" placeholder="Ej: misala" aria-label="Escribe el nombre de la sala">
+      <div class="input-group-append">
+        <a class="btn btn-secondary" href="@@webRoot/soporte/">Soporte <i class="fa fa-question-circle"></i></a>
+        <button id="entrar" class="btn btn-primary" type="button">Entrar <i class="fa fa-play-circle"></i> </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- descripción -->
+<div class="container">
+  <div class="row">
+    <h3><i class="fa fa-check"></i> <strong>Servicio público</strong>: No requiere autentificación. El primero que entra en una sala será el moderador.</h3>
+    <h3><i class="fa fa-check"></i> <strong>Servicio seguro</strong>: El vídeo pasa cifrado por el servidor de Podemos que hace de puente (videobridge).</h3>
+    <h3><i class="fa fa-check"></i> <strong>Software libre</strong>: Es una instancia de <a href="https://jitsi.org">jitsi</a>.</h3>.
+    <h3><i class="fa fa-download"></i> <a href="@@webRoot/doc/guia-podemos-jitsi.pdf">Descargar <strong>guía</strong> de uso</a>.</h3>
+    <h3><i class="fa fa-check"></i> <strong>Funciona en la web, sin instalar nada</strong>. Se comporta mejor con el navegador <a href="https://www.google.com/intl/es_es/chrome/">Chrome</a>.</h3>
+    <h3><i class="fa fa-check"></i> <strong>Compatible con las aplicaciones oficiales de jitsi</strong> que puedes descargarte desde:</h3>
+  </div>
+</div>
+<div class="container">
+  <div class="row" style="margin-bottom:20%;">
+    <div class="col-md-4 text-center">
+      <a href="https://f-droid.org/en/packages/org.jitsi.meet/" class="botontienda">
+        <img src="@@webRoot/img/f-droid.png" alt="Logo de la tienda de aplicaciones f-droid">
+      </a>
+    </div>
+    <div class="col-md-4 text-center">
+      <a href="https://play.google.com/store/apps/details?id=org.jitsi.meet" class="botontienda">
+        <img src="@@webRoot/img/google-play.png" alt="Logo de la tienda de aplicaciones Google Play">
+      </a>
+    </div>
+    <div class="col-md-4 text-center">
+      <a href="https://itunes.apple.com/us/app/jitsi-meet/id1165103905" class="botontienda">
+        <img src="@@webRoot/img/app-store.png" alt="Logo de la tienda de aplicaciones App Store">
+      </a>
+    </div>
+  </div>
+</div>
+
+  @@include('pie.html')
+
+  @@include('scripts-comunes.html')
+
+  <!-- scripts propios de la página -->
+  <script>
+
+// https://github.com/jitsi/jitsi-meet/blob/8bd0da886ebd164d0ef3bb9c999dce5c61175c4f/react/features/base/util/uri.js
+/**
+ * A list of characters to be excluded/removed from the room component/segment
+ * of a conference/meeting URI/URL. The list is based on RFC 3986 and the jxmpp
+ * library utilized by jicofo.
+ */
+const _ROOM_EXCLUDE_PATTERN = '[\\:\\?#\\[\\]@!$&\'()*+,;=></"]';
+
+;(function($) {
+  $('#entrar').on('click', function(e) {
+    var sala=$('#sala').val().replace(/\s/g, '').replace(new RegExp(_ROOM_EXCLUDE_PATTERN, 'g'), '');
+    var direccion='https://reuniones.circulospodemos.info/'+sala;
+    //alert(direccion);
+    window.location.assign(direccion);
+  });
+})(jQuery);
+
+  </script>
+
+</body>
+</html>

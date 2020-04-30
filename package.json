@@ -1,0 +1,25 @@
+{
+  "name": "podemos-presenta-reuniones",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/podemos-info/podemos-presenta-reuniones.git"
+  },
+  "author": "joker-x",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/podemos-info/podemos-presenta-reuniones/issues"
+  },
+  "homepage": "https://github.com/podemos-info/podemos-presenta-reuniones#readme",
+  "devDependencies": {
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.2.2"
+  }
+}
