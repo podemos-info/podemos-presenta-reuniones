@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+
+  @@include('metas-compartir.html', {
+    "titulo": "Servicio de edición colaborativa de documentos de texto llamados 'Pads'",
+    "descripcion": "Es una instancia personalizada del software libre 'Etherpad Lite' que corre en los servidores de PODEMOS desde la web sin registro",
+    "img_horizontal": "img/pads-compartir-horizontal.jpg",
+    "img_cuadrada": "img/pads.compartir-cuadrada.jpg"
+  })
+
+  @@include('estilos-comunes.html')
+
+  <!-- estilos propios de la página -->
+  <style>
+
+  </style>
+
+</head>
+<body id="pads">
+
+  @@include('menu.html')
+
+  @@include('cabecera.html', {
+    "titulo": "Servicio de edición colaborativa de documentos de texto llamados 'Pads'"
+  })
+
+<!-- formulario -->
+<div class="container sticky-top toolbar">
+  <div class="row shadow p-3 mb-5 bg-white">
+    <label>Escribe el nombre del pad:</label>
+    <div class="input-group input-group-lg">
+      <input id="sala" type="text" class="form-control form-control-primary" placeholder="Ej: mipad" aria-label="Escribe el nombre del pad">
+      <div class="input-group-append">
+        <a class="btn btn-secondary d-none d-md-block" href="@@webRoot/soporte/">Soporte <i class="fa fa-question-circle"></i></a>
+        <button id="entrar" class="btn btn-primary" type="button">Entrar <i class="fa fa-play-circle"></i> </button>
+      </div>
+    </div>
+  </div>
+  <div class="alert alert-danger" role="alert">
+    <h3><strong>¡Estamos en pruebas!</strong> Es probable que durante los próximos días se borren varias veces los pads, así que recordar guardaros copia.</h3>
+  </div>
+</div>
+
+<!-- descripción -->
+<div class="container">
+  <div class="row" style="margin-bottom:60px;">
+    <h3><i class="fa fa-check"></i> <strong>Servicio público</strong>: No requiere autentificación.</h3>
+    <h3><i class="fa fa-check"></i> <strong>Software libre</strong>: Es una instancia de <a href="https://etherpad.org/">Etherpad Lite</a>.</h3>
+    <h3><i class="fa fa-check"></i> <strong>Funciona en la web, sin instalar nada</strong>.</h3>
+  </div>
+</div>
+
+  @@include('pie.html')
+
+  @@include('scripts-comunes.html')
+
+  <!-- scripts propios de la página -->
+  <script>
+
+// https://gist.github.com/codeguy/6684588#gistcomment-3243980
+function slugify(text) {
+  return text
+    .toString()                     // Cast to string
+    .toLowerCase()                  // Convert the string to lowercase letters
+    .normalize('NFD')       // The normalize() method returns the Unicode Normalization Form of a given string.
+    .trim()                         // Remove whitespace from both sides of a string
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-');        // Replace multiple - with single -
+}
+
+
+;(function($) {
+
+  $('#sala').on('keypress', function (e) {
+   var key = e.which;
+   if(key == 13)  $('#entrar').click();
+  });
+
+  $('#entrar').on('click', function(e) {
+    e.preventDefault()
+    //var sala=$('#sala').val().replace(/\s/g, '').replace(new RegExp(_ROOM_EXCLUDE_PATTERN, 'g'), '');
+    var sala=slugify($('#sala').val());
+    var direccion='https://reuniones.circulospodemos.info:9001/p/'+sala;
+    //alert(direccion);
+    if (sala != "") window.location.assign(direccion);
+  });
+
+})(jQuery);
+
+  </script>
+
+</body>
+</html>

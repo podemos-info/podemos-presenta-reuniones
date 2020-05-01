@@ -23,7 +23,11 @@ gulp.task("copiar-assets", function() {
 // generar-html-estaticos
 gulp.task("generar-html-estaticos", function() {
    return gulp.src(['src/plantillas/*.html', 'src/plantillas/*/*.html'])
-      .pipe(fileInclude({ 
+      .pipe(fileInclude({
+        context: {
+          "img_horizontal": "img/compartir-horizontal.jpg",
+          "img_cuadrada": "img/compartir-horizontal.jpg"
+        },
         prefix: '@@', 
         basepath: 'src/bloques'
       }))
