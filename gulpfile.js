@@ -26,7 +26,7 @@ gulp.task("generar-html-estaticos", function() {
       .pipe(fileInclude({
         context: {
           "img_horizontal": "img/compartir-horizontal.jpg",
-          "img_cuadrada": "img/compartir-horizontal.jpg"
+          "img_cuadrada": "img/compartir-cuadrada.jpg"
         },
         prefix: '@@', 
         basepath: 'src/bloques'
