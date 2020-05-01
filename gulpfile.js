@@ -1,4 +1,9 @@
 //
+// Configuración
+//
+const URL_BASE = "https://reunionesvirtuales.podemos.info";
+
+//
 // Módulos:
 //
 var gulp = require('gulp')
@@ -26,7 +31,8 @@ gulp.task("generar-html-estaticos", function() {
       .pipe(fileInclude({
         context: {
           "img_horizontal": "img/compartir-horizontal.jpg",
-          "img_cuadrada": "img/compartir-cuadrada.jpg"
+          "img_cuadrada": "img/compartir-cuadrada.jpg",
+          "url_base": URL_BASE
         },
         prefix: '@@', 
         basepath: 'src/bloques'
